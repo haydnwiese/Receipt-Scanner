@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import TextDetection from './Components/TextDetection';
+import CameraExample from './Components/CameraView';
+import AppNavigator from './Navigation/AppNavigator';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <AppNavigator/>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
