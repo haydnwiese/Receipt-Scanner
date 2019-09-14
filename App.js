@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TextDetection from './Components/TextDetection';
-import CameraView from './Components/CameraView';
+import CameraExample from './Components/CameraView';
+import AppNavigator from './Navigation/AppNavigator';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <CameraView />
-      </View>
+      <AppNavigator/>
     );
   }
 }

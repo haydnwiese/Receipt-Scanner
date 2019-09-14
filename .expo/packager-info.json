@@ -1,9 +1,9 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 21472,
+  "packagerPort": null,
+  "packagerPid": null,
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://2a-xi6.anonymous.receipt-scanner.exp.direct",
-  "packagerNgrokUrl": "https://packager.2a-xi6.anonymous.receipt-scanner.exp.direct",
-  "ngrokPid": 29780
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
