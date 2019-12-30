@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import TextDetection from './Components/TextDetection';
+import TextDetection from './Utilities/TextDetection';
 import CameraExample from './Components/CameraView';
 import AppNavigator from './Navigation/AppNavigator';
 

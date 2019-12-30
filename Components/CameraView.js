@@ -4,12 +4,16 @@ import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera';
 
 export default class CameraExample extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
 
     state = {
         hasCameraPermission: null,
         type: Camera.Constants.Type.back,
         pictureTaken: false,
         imageUri: null,
+        imageBase64: null,
     }
 
   async componentDidMount() {
@@ -19,12 +23,12 @@ export default class CameraExample extends React.Component {
 
   takePicture = async() => {
       if (this.camera) {
-          const options = { quality: 0.8, base64: true }
+          const options = { quality: 0.6, base64: true }
           const data = await this.camera.takePictureAsync(options);
-          console.log(data.uri);
           this.setState({
             pictureTaken: true,
             imageUri: data.uri,
+            imageBase64: data.base64,
           });
       }
   }
@@ -63,20 +67,31 @@ export default class CameraExample extends React.Component {
                             })}>
                             <Text>Retake</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity
+                        <View
                             style={{
-                                backgroundColor: 'white',
-                                height: 40,
-                                width: 70,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginTop: 30,
-                                marginLeft: 20,
-                                borderRadius: 15,
-                            }}
-                            onPress={() => this.props.navigation.navigate('DetailsScreen')}>
-                            <Text>Retake</Text>
-                        </TouchableOpacity>
+                                flex: 1,
+                                justifyContent: 'flex-end',
+                            }}>
+                            <TouchableOpacity
+                                style={{
+                                    backgroundColor: 'white',
+                                    height: 70,
+                                    width: 140,
+                                    alignSelf: 'center',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginBottom: 60,
+                                    borderRadius: 15,
+                                }}
+                                onPress={() => this.props.navigation.navigate('DetailsScreen', {imageBase64: this.state.imageBase64})}>
+                                <Text 
+                                    style={{
+                                        fontSize: 20,
+                                    }}>
+                                    Use Picture
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </ImageBackground>
             </View>
         );
